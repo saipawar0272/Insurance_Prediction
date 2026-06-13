@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
+import pandas as pd
 
 app = Flask(__name__)
 
-model = pickle.load(open("model.pkl", "rb"))
+model = pickle.load(open("final_model.pkl", "rb"))
 
 @app.route("/")
 def home():
@@ -20,7 +21,13 @@ def predict():
     children = int(request.form["children"])
     smoker = int(request.form["smoker"])
 
-    features = np.array([[age, sex, bmi, children, smoker]])
+    features = pd.DataFrame({
+        'age': [age],
+        'sex': [sex],
+        'bmi' :[bmi],
+        'children': [children],
+        'smoker' :[smoker],
+    })
 
     prediction = model.predict(features)
 
