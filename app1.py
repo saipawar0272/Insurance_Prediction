@@ -16,8 +16,22 @@ def predict():
 
 
     age = float(request.form["age"])
+
+    if age < 18 or age > 60 :
+        return render_template(
+            "index.html",
+            prediction_text = "age must be between 18 and 60"
+        )
+
     sex = int(request.form["sex"])
     bmi = float(request.form["bmi"])
+
+    if bmi < 16 or bmi > 55:
+        return render_template(
+            "index.html",
+            prediction_text = "BMI must be between 16 and 55"
+        )
+
     children = int(request.form["children"])
     smoker = int(request.form["smoker"])
 
