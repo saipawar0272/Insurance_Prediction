@@ -26,7 +26,8 @@ body{
 }
 
 .container{
-    width:400px;
+    width:500px;
+    height : 400px;
     
     background:rgba(255,255,255,0.95);
     max-height: 90vh;
@@ -93,5 +94,13 @@ h2{
     margin-top:25px;
     text-align:center;
     color:green;
-    font-size:12px;
+    font-size:40px;
+}
+
+.prediction{
+    margin-top:20px;
+    text-align:center;
+    color:#008000;
+    font-size:32px;
+    font-weight:bold;
 }
